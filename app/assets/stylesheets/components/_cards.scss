@@ -7,7 +7,7 @@
 .card-category {
   background-size: cover;
   background-position: center;
-  background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('cocktail.jpg');
+  background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('<%= cl_image_path @cocktail.photo, height: 300, width: 400, crop: :fill %>');
   height: 180px;
   display: flex;
   justify-content: center;
