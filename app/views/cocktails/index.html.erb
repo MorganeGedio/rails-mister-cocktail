@@ -9,7 +9,6 @@
 
   <h1>COCKTAIL HOUR</h1>
 
-
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
@@ -22,25 +21,28 @@
 
 <div class="container">
 
-<%#= image_tag "Morgane.png", class: "main_image" %>
-
-<%#= link_to "Add a cocktail", new_cocktail_path, class: 'btn btn-warning'%>
-
 </div>
 
 <div class="container mt-3">
   <div class="cards">
 
-      <% @cocktails.each do |cocktail| %>
+<% @cocktails.each do |cocktail| %>
 
-      <div class="card-category">
+    <% if cocktail.photo.present? %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+          url('<%= cl_image_path cocktail.photo, height: 200, width: 300, crop: :fill %>')">
 
+            <%= link_to cocktail.name , cocktail_path(cocktail), :class => "card-text" %>
+          </div>
+        <% else %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))">
+            <%= link_to cocktail.name , cocktail_path(cocktail), :class => "card-text" %>
+          </div>
+        <% end %>
 
-        <%= link_to cocktail.name, cocktail_path(cocktail) %>
-
+       <% end %>
 
       </div>
-
-      <% end %>
-
 </div>
+
+
