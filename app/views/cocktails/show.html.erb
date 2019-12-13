@@ -1,26 +1,27 @@
 <div class="container">
 
 <h1>  <%= @cocktail.name  %> </h1>
-<br/>
 
-  <%= cl_image_tag @cocktail.photo, height: 300, width: 400, crop: :fill %>
+  <div class="description">
+    <%= cl_image_tag @cocktail.photo, height: 600, width: 500, crop: :fill %>
+      <div class="ingredient">
+        <h3>Ingredients : </h3>
 
-<h3>Ingredients : </h3>
-<br/>
+          <ul class="list">
+            <% @cocktail.doses.each do |dose| %>
+              <li class="list-items">
+                <%= dose.ingredient.name %> -
+                <%= dose.description %> -
+                <%= link_to "🗑", dose_path(dose), method: :delete,
+              data: { confirm: "Are you sure?" } %>
+              </li>
+            <% end %>
+          </ul>
 
-  <ul>
-    <% @cocktail.doses.each do |dose| %>
-      <li>
-        <%= dose.ingredient.name %> -
-        <%= dose.description %> -
-        <%= link_to "🗑", dose_path(dose), method: :delete,
-      data: { confirm: "Are you sure?" } %>
-      </li>
-    <% end %>
-  </ul>
+      <%= link_to "Add an ingredient", new_cocktail_dose_path(@cocktail[:id]), class: 'btn btn-primary' %>
+      <%= link_to "Back to list", root_path, class: 'btn btn-primary' %>
+     </div>
 
-<%= link_to "Back to list", root_path, class: 'btn btn-primary' %>
-<br/>
-<%= link_to "Add an ingredient", new_cocktail_dose_path(@cocktail[:id]), class: 'btn btn-primary' %>
+  </div>
 
 </div>

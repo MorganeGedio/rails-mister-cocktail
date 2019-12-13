@@ -1,0 +1,35 @@
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <%= link_to "/", class: "navbar-brand" do %>
+    <%= image_tag "cocktail.png"%>
+  <% end %>
+<!-- ß -->
+
+    <h1>COCKTAIL HOUR</h1>
+
+  <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <%#= link_to "Add a cocktail", new_cocktail_path, class: 'btn btn-primary' %>
+      </li>
+    </ul>
+  </div> -->
+
+  <div class="burger-container">
+  <div class="burger">
+    <span class="span span1"></span>
+    <span class="span span2"></span>
+    <span class="span span3"></span>
+  </div>
+  <div>
+    <ul class="nav-links">
+      <li>
+        <%= link_to "Add a cocktail", new_cocktail_path, class: 'link' %>
+        <li>
+        <%= link_to "Ingredients", "#", class: 'link' %>
+      </li>
+      </li>
+    </ul>
+  </div>
+</div>
+
+</div>

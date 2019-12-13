@@ -16,5 +16,8 @@
 // const imagePath = (name) => images(name, true)
 
 import 'bootstrap';
+import { openNav } from '../components/burger'
+
+openNav();
 
 console.log('Hello World from Webpacker')
