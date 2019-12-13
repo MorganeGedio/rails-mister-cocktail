@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container cocktail-container">
 
 <h1>  <%= @cocktail.name  %> </h1>
 
@@ -7,11 +7,11 @@
       <div class="ingredient">
         <h3>Ingredients : </h3>
 
-          <ul class="list">
+          <ul class="list fa-ul">
             <% @cocktail.doses.each do |dose| %>
-              <li class="list-items">
+              <li class="list-items"><span class="fa-li"><i class="fas fa-cocktail"></i></span>
                 <%= dose.ingredient.name %> -
-                <%= dose.description %> -
+                <%= dose.description %> |
                 <%= link_to "🗑", dose_path(dose), method: :delete,
               data: { confirm: "Are you sure?" } %>
               </li>
@@ -25,3 +25,6 @@
   </div>
 
 </div>
+
+
+  <li><span class="fa-li"><i class="fas fa-check-square"></i></span>List icons can</li>
